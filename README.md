@@ -67,8 +67,8 @@ PyTorch install depends on your CUDA version. See [pytorch.org](https://pytorch.
 ### Eddie HPC
 
 ```bash
-conda create -y -p /exports/eddie/scratch/$USER/envs/fluocode python=3.10
-conda activate /exports/eddie/scratch/$USER/envs/fluocode
+conda create -y -p fluocode python=3.10
+conda activate fluocode
 pip install torch==2.5.1+cu121 --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
 ```
@@ -86,9 +86,9 @@ python scripts/train_v6.py --config configs/v6.yaml --test_run
 python scripts/train_v2.py --config configs/v2.yaml
 python scripts/train_v6.py --config configs/v6.yaml
 
-# on Eddie
-qsub run_v2_eddie.sh
-qsub run_v6_eddie.sh
+# submit scripts
+qsub run_v2.sh
+qsub run_v6.sh
 ```
 
 ---
