@@ -1,0 +1,58 @@
+# configs/v6.yaml
+# v6: DMS-pretrained ESM2 + XGBoost + real minimised structure pocket features
+
+model_name: facebook/esm2_t12_35M_UR50D
+
+# Cross-validation
+n_folds: 5
+cluster_threshold: 0.3
+seed: 42
+
+# Stage 1 — DMS pretraining (identical to v2)
+dms_lora_r:    4
+dms_lora_alpha: 8
+dms_epochs:    10
+dms_batch_size: 16
+dms_lr:        0.0005
+dms_sample:    3000
+dms_patience:  4
+
+# Stage 2 — FPbase fine-tuning (identical to v2)
+fpbase_lora_r:       8
+fpbase_lora_alpha:   16
+fpbase_lora_dropout: 0.1
+fpbase_epochs:       50
+fpbase_batch_size:   8
+fpbase_lr:           0.0001
+fpbase_patience:     12
+
+# XGBoost (identical to v2)
+xgb_params:
+  n_estimators:          800
+  max_depth:             4
+  learning_rate:         0.05
+  subsample:             0.8
+  colsample_bytree:      0.8
+  reg_alpha:             0.5
+  reg_lambda:            1.0
+  min_child_weight:      3
+  early_stopping_rounds: 40
+  tree_method:           hist
+  device:                cpu
+  verbosity:             0
+
+# Structural features
+structure_dir:    data/structure/minimized   # directory containing *_minimized.pdb files
+struct_cache:     data/pocket_features_v6.npy
+chromophore_res:  66     # Tyr66 — chromophore anchor residue (1-indexed)
+pocket_radius_a:  8.0    # Angstroms
+max_pocket_size:  30     # feature vector size = max_pocket_size^2 = 900
+
+# General
+max_length: 512
+
+# Paths — adjust to your environment
+fpbase_cache:   data/fpbase_data.csv
+dms_cache:      data/gonzalez_somermeyer_dms.csv
+results_dir:    results/v6
+checkpoint_dir: checkpoints/v6
