@@ -20,24 +20,24 @@ Cluster CV groups proteins by sequence identity first, then assigns entire clust
 ---
 
 ## Pipeline
-
+ 
 ```
-Sarkisyan DMS (51k avGFP variants, brightness only)
-    → ESM2-35M + LoRA (r=4), predict log_fluorescence
-    → transfer base weights
-
-FPbase (878 proteins, λex / λem / EC / QY)
-    → ESM2-35M + LoRA (r=8), masked MSE across all targets
-    → freeze encoder, extract 480-dim embeddings
-
-[v6 only] energy-minimised PDB structures
-    → residues within 8Å of Tyr66 → pairwise Cα distances → 900-dim vector
-    → concatenate with ESM2 embeddings → 1380-dim
-
-XGBoost (one per target, 800 trees, early stopping)
+Sarkisyan DMS (51k avGFP variants)
+  → ESM2 + LoRA (r=4)      pretrain on brightness regression
+  → ESM2 + LoRA (r=8)      fine-tune on FPbase spectral labels (masked MSE)
+  → 480-dim embedding       mean-pool over residues, freeze encoder
+ 
+  v2  →  XGBoost × 4
+  v6  →  concatenate 900-dim flat pocket distances  →  XGBoost × 4
+  v7  →  GATv2 over pocket graph (ESM2 node features, Cα edge distances)
+          → 128-dim pocket embedding
+          → concatenate with 480-dim protein embedding
+          → XGBoost × 4
 ```
-
-The two-stage LoRA setup (r=4 for DMS, r=8 for FPbase) is deliberate. DMS pretraining needs a broad prior, not a tight fit to avGFP. The higher rank in stage 2 lets the encoder adapt more specifically to spectral prediction.
+ 
+The DMS pretraining step is important. ESM2 out of the box has no particular knowledge of what makes a fluorescent protein work. Training it to predict GFP variant brightness first gives it a useful prior — it learns which positions are sensitive before seeing any wavelength data.
+ 
+The v7 GNN uses ESM2 per-residue embeddings as node features, so each pocket residue carries both its sequence context and its 3D neighbourhood. This is richer than v6's flat distance matrix, where the identity of each residue is lost.
 
 ---
 
@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 PyTorch install depends on your CUDA version. See [pytorch.org](https://pytorch.org/get-started/locally/).
 
-### Eddie HPC
+### env 
 
 ```bash
 conda create -y -p fluocode python=3.10
