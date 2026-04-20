@@ -1,0 +1,70 @@
+2026-04-19 01:25:58,910 INFO config: configs/v7.yaml | run: 20260419_012558
+2026-04-19 01:25:58,911 INFO device: cuda
+2026-04-19 01:25:59,076 INFO gpu: NVIDIA L40S (48GB)
+2026-04-19 01:25:59,124 INFO FPbase: loading cache from data/fpbase_data.csv
+2026-04-19 01:25:59,154 INFO DMS: loading cache from data/gonzalez_somermeyer_dms.csv
+2026-04-19 01:25:59,401 INFO test run: reduced dataset and epochs
+2026-04-19 01:25:59,988 INFO loading PDB structures...
+2026-04-19 01:26:01,235 INFO   105/120 proteins have PDB structures
+2026-04-19 01:26:01,235 INFO clustering 120 sequences (threshold=0.3, folds=2)
+2026-04-19 01:26:01,345 INFO   8 clusters formed
+2026-04-19 01:26:01,346 INFO   fold 0: 71 proteins
+2026-04-19 01:26:01,346 INFO   fold 1: 49 proteins
+2026-04-19 01:26:01,346 INFO 
+fold 1/2 — 49 train / 71 test
+2026-04-19 01:26:03,884 INFO --- DMS pretraining: 400 sequences, 2 epochs ---
+2026-04-19 01:26:13,429 INFO   epoch 001 | train 1.1058 | val 1.1398
+2026-04-19 01:26:18,384 INFO   epoch 002 | train 0.9881 | val 1.1165
+2026-04-19 01:26:18,553 INFO   best val loss: 1.1165
+2026-04-19 01:26:19,036 INFO --- FPbase fine-tuning: 41 train / 8 val ---
+2026-04-19 01:26:20,481 INFO   epoch 001 | train 1.4709 | val 1.0475
+2026-04-19 01:26:22,536 INFO   best val loss: 0.9119
+2026-04-19 01:26:22,538 INFO extracting protein embeddings...
+2026-04-19 01:26:23,486 INFO extracting per-residue embeddings for GNN...
+2026-04-19 01:26:24,307 INFO building pocket graphs...
+2026-04-19 01:26:24,366 INFO   105/120 pocket graphs built
+2026-04-19 01:26:24,366 INFO training pocket GNN...
+2026-04-19 01:26:24,891 INFO   GNN epoch 001 | train 1.0642 | val 0.9446
+2026-04-19 01:26:25,756 INFO   GNN epoch 005 | train 0.3470 | val 0.8325
+2026-04-19 01:26:25,775 INFO combined features: 608-dim (480 ESM2 + 128 GNN)
+2026-04-19 01:26:25,775 INFO   ex_max: 41 train / 8 val / 71 test
+2026-04-19 01:26:26,431 INFO     R²=-0.5013  Spearman=0.3304
+2026-04-19 01:26:26,432 INFO   em_max: 41 train / 8 val / 71 test
+2026-04-19 01:26:26,564 INFO     R²=-0.8410  Spearman=0.2397
+2026-04-19 01:26:26,564 INFO   ext_coeff: 41 train / 8 val / 71 test
+2026-04-19 01:26:26,915 INFO     R²=-0.2575  Spearman=0.1609
+2026-04-19 01:26:26,915 INFO   qy: 41 train / 8 val / 71 test
+2026-04-19 01:26:27,056 INFO     R²=-0.1441  Spearman=0.2114
+2026-04-19 01:26:27,059 INFO 
+fold 2/2 — 71 train / 49 test
+2026-04-19 01:26:27,733 INFO --- DMS pretraining: 400 sequences, 2 epochs ---
+2026-04-19 01:26:32,632 INFO   epoch 001 | train 1.0182 | val 1.1365
+2026-04-19 01:26:37,622 INFO   epoch 002 | train 0.9595 | val 1.1134
+2026-04-19 01:26:37,717 INFO   best val loss: 1.1134
+2026-04-19 01:26:38,127 INFO --- FPbase fine-tuning: 60 train / 11 val ---
+2026-04-19 01:26:39,086 INFO   epoch 001 | train 0.7596 | val 0.4762
+2026-04-19 01:26:41,210 INFO   best val loss: 0.4292
+2026-04-19 01:26:41,212 INFO extracting protein embeddings...
+2026-04-19 01:26:42,097 INFO extracting per-residue embeddings for GNN...
+2026-04-19 01:26:42,825 INFO building pocket graphs...
+2026-04-19 01:26:42,834 INFO   105/120 pocket graphs built
+2026-04-19 01:26:42,835 INFO training pocket GNN...
+2026-04-19 01:26:43,106 INFO   GNN epoch 001 | train 0.6632 | val 0.5313
+2026-04-19 01:26:44,134 INFO   GNN epoch 005 | train 0.4640 | val 0.5552
+2026-04-19 01:26:44,146 INFO combined features: 608-dim (480 ESM2 + 128 GNN)
+2026-04-19 01:26:44,146 INFO   ex_max: 60 train / 11 val / 49 test
+2026-04-19 01:26:44,260 INFO     R²=-0.4511  Spearman=-0.1696
+2026-04-19 01:26:44,260 INFO   em_max: 60 train / 11 val / 49 test
+2026-04-19 01:26:44,374 INFO     R²=-0.5325  Spearman=0.1136
+2026-04-19 01:26:44,375 INFO   ext_coeff: 60 train / 11 val / 49 test
+2026-04-19 01:26:45,232 INFO     R²=-0.0626  Spearman=0.0327
+2026-04-19 01:26:45,232 INFO   qy: 60 train / 11 val / 49 test
+2026-04-19 01:26:45,618 INFO     R²=-0.1539  Spearman=0.2804
+2026-04-19 01:26:45,620 INFO 
+CV results — v7 (DMS + GNN pocket + XGBoost)
+2026-04-19 01:26:45,620 INFO ------------------------------------------------------------
+2026-04-19 01:26:45,622 INFO   ex_max        Spearman 0.0804 ± 0.2500  R² -0.4762 ± 0.0251  (2 folds, n=120)
+2026-04-19 01:26:45,628 INFO   em_max        Spearman 0.1767 ± 0.0630  R² -0.6867 ± 0.1542  (2 folds, n=120)
+2026-04-19 01:26:45,628 INFO   ext_coeff     Spearman 0.0968 ± 0.0641  R² -0.1600 ± 0.0974  (2 folds, n=120)
+2026-04-19 01:26:45,628 INFO   qy            Spearman 0.2459 ± 0.0345  R² -0.1490 ± 0.0049  (2 folds, n=120)
+2026-04-19 01:26:45,630 INFO results: results/v7/v7_20260419_012558.json

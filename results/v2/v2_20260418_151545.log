@@ -1,0 +1,14 @@
+2026-04-18 15:15:45,934 INFO config: configs/v2.yaml | run: 20260418_151545
+2026-04-18 15:15:45,935 INFO device: cuda
+2026-04-18 15:15:46,138 INFO gpu: NVIDIA L40S (48GB)
+2026-04-18 15:15:46,164 INFO FPbase: loading cache from data/fpbase_data.csv
+2026-04-18 15:15:46,192 INFO DMS: loading cache from data/gonzalez_somermeyer_dms.csv
+2026-04-18 15:15:46,528 INFO test run: reduced dataset and epochs
+2026-04-18 15:15:46,786 INFO clustering 120 sequences (threshold=0.3, folds=2)
+2026-04-18 15:15:46,940 INFO   8 clusters formed
+2026-04-18 15:15:46,941 INFO   fold 0: 71 proteins
+2026-04-18 15:15:46,941 INFO   fold 1: 49 proteins
+2026-04-18 15:15:46,942 INFO 
+fold 1/2 — 49 train / 71 test
+2026-04-18 15:15:50,245 INFO --- DMS pretraining: 400 sequences, 2 epochs ---
+2026-04-18 15:16:12,922 INFO   epoch 001 | train 1.1058 | val 1.1398

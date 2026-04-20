@@ -1,0 +1,123 @@
+{
+  "model": "v7",
+  "run_id": "20260419_012558",
+  "description": "DMS-pretrained ESM2 + GATv2 pocket GNN + XGBoost, cluster CV",
+  "n_folds": 2,
+  "cv_summary": {
+    "ex_max": {
+      "spearman_mean": 0.0804,
+      "spearman_std": 0.25,
+      "r2_mean": -0.4762,
+      "r2_std": 0.0251,
+      "n_folds": 2,
+      "n_total": 120
+    },
+    "em_max": {
+      "spearman_mean": 0.1767,
+      "spearman_std": 0.063,
+      "r2_mean": -0.6867,
+      "r2_std": 0.1542,
+      "n_folds": 2,
+      "n_total": 120
+    },
+    "ext_coeff": {
+      "spearman_mean": 0.0968,
+      "spearman_std": 0.0641,
+      "r2_mean": -0.16,
+      "r2_std": 0.0974,
+      "n_folds": 2,
+      "n_total": 120
+    },
+    "qy": {
+      "spearman_mean": 0.2459,
+      "spearman_std": 0.0345,
+      "r2_mean": -0.149,
+      "r2_std": 0.0049,
+      "n_folds": 2,
+      "n_total": 120
+    }
+  },
+  "fold_results": [
+    {
+      "ex_max": {
+        "r2": -0.5013,
+        "spearman": 0.3304,
+        "n": 71
+      },
+      "em_max": {
+        "r2": -0.841,
+        "spearman": 0.2397,
+        "n": 71
+      },
+      "ext_coeff": {
+        "r2": -0.2575,
+        "spearman": 0.1609,
+        "n": 71
+      },
+      "qy": {
+        "r2": -0.1441,
+        "spearman": 0.2114,
+        "n": 71
+      }
+    },
+    {
+      "ex_max": {
+        "r2": -0.4511,
+        "spearman": -0.1696,
+        "n": 49
+      },
+      "em_max": {
+        "r2": -0.5325,
+        "spearman": 0.1136,
+        "n": 49
+      },
+      "ext_coeff": {
+        "r2": -0.0626,
+        "spearman": 0.0327,
+        "n": 49
+      },
+      "qy": {
+        "r2": -0.1539,
+        "spearman": 0.2804,
+        "n": 49
+      }
+    }
+  ],
+  "config": {
+    "model_name": "facebook/esm2_t12_35M_UR50D",
+    "n_folds": 2,
+    "cluster_threshold": 0.3,
+    "seed": 42,
+    "dms_lora_r": 4,
+    "dms_lora_alpha": 8,
+    "dms_epochs": 2,
+    "dms_batch_size": 16,
+    "dms_lr": 0.0005,
+    "dms_sample": 3000,
+    "dms_patience": 4,
+    "fpbase_lora_r": 8,
+    "fpbase_lora_alpha": 16,
+    "fpbase_lora_dropout": 0.1,
+    "fpbase_epochs": 3,
+    "fpbase_batch_size": 8,
+    "fpbase_lr": 0.0001,
+    "fpbase_patience": 12,
+    "gnn_hidden": 256,
+    "gnn_out_dim": 128,
+    "gnn_heads": 4,
+    "gnn_dropout": 0.2,
+    "gnn_epochs": 5,
+    "gnn_patience": 8,
+    "gnn_lr": 0.001,
+    "structure_dir": "data/structure/minimized",
+    "chromophore_res": 66,
+    "pocket_radius_a": 8.0,
+    "edge_cutoff_a": 6.0,
+    "max_length": 512,
+    "fpbase_cache": "data/fpbase_data.csv",
+    "dms_cache": "data/gonzalez_somermeyer_dms.csv",
+    "results_dir": "results/v7",
+    "checkpoint_dir": "checkpoints/v7",
+    "test_run": true
+  }
+}

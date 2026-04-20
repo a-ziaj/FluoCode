@@ -1,0 +1,185 @@
+{
+  "model": "v6",
+  "run_id": "20260419_002938",
+  "description": "DMS-pretrained ESM2 + XGBoost + minimised structure pocket features, cluster CV",
+  "n_folds": 5,
+  "pocket_matched": 807,
+  "pocket_total": 878,
+  "cv_summary": {
+    "ex_max": {
+      "spearman_mean": 0.5009,
+      "spearman_std": 0.0847,
+      "r2_mean": 0.3313,
+      "r2_std": 0.1573,
+      "n_folds": 5,
+      "n_total": 878
+    },
+    "em_max": {
+      "spearman_mean": 0.5585,
+      "spearman_std": 0.1174,
+      "r2_mean": 0.4128,
+      "r2_std": 0.2222,
+      "n_folds": 5,
+      "n_total": 839
+    },
+    "ext_coeff": {
+      "spearman_mean": 0.3268,
+      "spearman_std": 0.2626,
+      "r2_mean": 0.1436,
+      "r2_std": 0.1815,
+      "n_folds": 5,
+      "n_total": 626
+    },
+    "qy": {
+      "spearman_mean": 0.3804,
+      "spearman_std": 0.1707,
+      "r2_mean": 0.1346,
+      "r2_std": 0.1814,
+      "n_folds": 5,
+      "n_total": 696
+    }
+  },
+  "fold_results": [
+    {
+      "ex_max": {
+        "r2": 0.3792,
+        "spearman": 0.6246,
+        "n": 276
+      },
+      "em_max": {
+        "r2": 0.5227,
+        "spearman": 0.7106,
+        "n": 275
+      },
+      "ext_coeff": {
+        "r2": 0.2327,
+        "spearman": 0.4126,
+        "n": 242
+      },
+      "qy": {
+        "r2": -0.1161,
+        "spearman": 0.1851,
+        "n": 241
+      }
+    },
+    {
+      "ex_max": {
+        "r2": 0.1932,
+        "spearman": 0.4809,
+        "n": 209
+      },
+      "em_max": {
+        "r2": 0.462,
+        "spearman": 0.6067,
+        "n": 204
+      },
+      "ext_coeff": {
+        "r2": 0.1875,
+        "spearman": 0.4546,
+        "n": 133
+      },
+      "qy": {
+        "r2": -0.0425,
+        "spearman": 0.2386,
+        "n": 132
+      }
+    },
+    {
+      "ex_max": {
+        "r2": 0.1722,
+        "spearman": 0.3743,
+        "n": 131
+      },
+      "em_max": {
+        "r2": 0.0972,
+        "spearman": 0.3626,
+        "n": 107
+      },
+      "ext_coeff": {
+        "r2": -0.1939,
+        "spearman": -0.112,
+        "n": 100
+      },
+      "qy": {
+        "r2": 0.1988,
+        "spearman": 0.3409,
+        "n": 92
+      }
+    },
+    {
+      "ex_max": {
+        "r2": 0.6075,
+        "spearman": 0.5562,
+        "n": 131
+      },
+      "em_max": {
+        "r2": 0.7365,
+        "spearman": 0.5062,
+        "n": 131
+      },
+      "ext_coeff": {
+        "r2": 0.346,
+        "spearman": 0.6665,
+        "n": 48
+      },
+      "qy": {
+        "r2": 0.3179,
+        "spearman": 0.4819,
+        "n": 124
+      }
+    },
+    {
+      "ex_max": {
+        "r2": 0.3043,
+        "spearman": 0.4683,
+        "n": 131
+      },
+      "em_max": {
+        "r2": 0.2454,
+        "spearman": 0.6065,
+        "n": 122
+      },
+      "ext_coeff": {
+        "r2": 0.1455,
+        "spearman": 0.2122,
+        "n": 103
+      },
+      "qy": {
+        "r2": 0.3149,
+        "spearman": 0.6553,
+        "n": 107
+      }
+    }
+  ],
+  "config": {
+    "model_name": "facebook/esm2_t12_35M_UR50D",
+    "n_folds": 5,
+    "cluster_threshold": 0.3,
+    "seed": 42,
+    "dms_lora_r": 4,
+    "dms_lora_alpha": 8,
+    "dms_epochs": 10,
+    "dms_batch_size": 16,
+    "dms_lr": 0.0005,
+    "dms_sample": 3000,
+    "dms_patience": 4,
+    "fpbase_lora_r": 8,
+    "fpbase_lora_alpha": 16,
+    "fpbase_lora_dropout": 0.1,
+    "fpbase_epochs": 50,
+    "fpbase_batch_size": 8,
+    "fpbase_lr": 0.0001,
+    "fpbase_patience": 12,
+    "structure_dir": "data/structure/minimized",
+    "struct_cache": "data/pocket_features_v6.npy",
+    "chromophore_res": 66,
+    "pocket_radius_a": 8.0,
+    "max_pocket_size": 30,
+    "max_length": 512,
+    "fpbase_cache": "data/fpbase_data.csv",
+    "dms_cache": "data/gonzalez_somermeyer_dms.csv",
+    "results_dir": "results/v6",
+    "checkpoint_dir": "checkpoints/v6",
+    "test_run": false
+  }
+}

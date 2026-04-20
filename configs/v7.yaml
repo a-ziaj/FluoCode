@@ -1,0 +1,63 @@
+# configs/v7.yaml
+# v7: DMS-pretrained ESM2 + GATv2 pocket GNN + XGBoost
+
+model_name: facebook/esm2_t12_35M_UR50D
+
+n_folds: 5
+cluster_threshold: 0.3
+seed: 42
+
+# DMS pretraining (identical to v2/v6)
+dms_lora_r:    4
+dms_lora_alpha: 8
+dms_epochs:    10
+dms_batch_size: 16
+dms_lr:        0.0005
+dms_sample:    3000
+dms_patience:  4
+
+# FPbase fine-tuning (identical to v2/v6)
+fpbase_lora_r:       8
+fpbase_lora_alpha:   16
+fpbase_lora_dropout: 0.1
+fpbase_epochs:       50
+fpbase_batch_size:   8
+fpbase_lr:           0.0001
+fpbase_patience:     12
+
+# GNN
+gnn_hidden:   256   # hidden dim inside GATv2 layers
+gnn_out_dim:  128   # pocket embedding size (concatenated with 480-dim ESM2)
+gnn_heads:    4     # attention heads
+gnn_dropout:  0.2
+gnn_epochs:   30
+gnn_patience: 8
+gnn_lr:       0.001
+
+# Pocket graph construction
+structure_dir:   data/structure/minimized
+chromophore_res: 66     # Tyr66, 1-indexed
+pocket_radius_a: 8.0    # residues within this of chromophore form pocket nodes
+edge_cutoff_a:   6.0    # edges connect residues within this distance
+
+# XGBoost
+xgb_params:
+  n_estimators:          800
+  max_depth:             4
+  learning_rate:         0.05
+  subsample:             0.8
+  colsample_bytree:      0.8
+  reg_alpha:             0.5
+  reg_lambda:            1.0
+  min_child_weight:      3
+  early_stopping_rounds: 40
+  tree_method:           hist
+  device:                cpu
+  verbosity:             0
+
+max_length: 512
+
+fpbase_cache:   data/fpbase_data.csv
+dms_cache:      data/gonzalez_somermeyer_dms.csv
+results_dir:    results/v7
+checkpoint_dir: checkpoints/v7

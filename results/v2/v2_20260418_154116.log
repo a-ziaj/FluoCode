@@ -1,0 +1,197 @@
+2026-04-18 15:41:16,182 INFO config: configs/v2.yaml | run: 20260418_154116
+2026-04-18 15:41:16,183 INFO device: cuda
+2026-04-18 15:41:16,241 INFO gpu: NVIDIA L40S (48GB)
+2026-04-18 15:41:16,268 INFO FPbase: loading cache from data/fpbase_data.csv
+2026-04-18 15:41:16,308 INFO DMS: loading cache from data/gonzalez_somermeyer_dms.csv
+2026-04-18 15:41:16,735 INFO clustering 878 sequences (threshold=0.3, folds=5)
+2026-04-18 15:41:21,289 INFO   20 clusters formed
+2026-04-18 15:41:21,289 INFO   fold 0: 276 proteins
+2026-04-18 15:41:21,289 INFO   fold 1: 209 proteins
+2026-04-18 15:41:21,289 INFO   fold 2: 131 proteins
+2026-04-18 15:41:21,289 INFO   fold 3: 131 proteins
+2026-04-18 15:41:21,289 INFO   fold 4: 131 proteins
+2026-04-18 15:41:21,289 INFO 
+fold 1/5 — 602 train / 276 test
+2026-04-18 15:41:23,039 INFO --- DMS pretraining: 51715 sequences, 10 epochs ---
+2026-04-18 15:51:25,446 INFO   epoch 001 | train 0.4030 | val 0.1882
+2026-04-18 16:01:16,968 INFO   epoch 002 | train 0.1857 | val 0.1098
+2026-04-18 16:11:08,707 INFO   epoch 003 | train 0.1344 | val 0.1007
+2026-04-18 16:21:00,289 INFO   epoch 004 | train 0.1111 | val 0.1137
+2026-04-18 16:30:51,688 INFO   epoch 005 | train 0.0905 | val 0.0913
+2026-04-18 16:40:43,876 INFO   epoch 006 | train 0.0759 | val 0.0843
+2026-04-18 16:50:35,678 INFO   epoch 007 | train 0.0626 | val 0.0839
+2026-04-18 17:00:27,391 INFO   epoch 008 | train 0.0539 | val 0.0531
+2026-04-18 17:10:18,866 INFO   epoch 009 | train 0.0474 | val 0.0539
+2026-04-18 17:20:10,544 INFO   epoch 010 | train 0.0430 | val 0.0552
+2026-04-18 17:20:10,622 INFO   best val loss: 0.0531
+2026-04-18 17:20:11,936 INFO --- FPbase fine-tuning: 511 train / 91 val ---
+2026-04-18 17:20:20,633 INFO   epoch 001 | train 0.9840 | val 0.7585
+2026-04-18 17:20:48,168 INFO   epoch 005 | train 0.6247 | val 0.5095
+2026-04-18 17:21:22,584 INFO   epoch 010 | train 0.5125 | val 0.4818
+2026-04-18 17:21:56,830 INFO   epoch 015 | train 0.4206 | val 0.4011
+2026-04-18 17:22:31,144 INFO   epoch 020 | train 0.3750 | val 0.4145
+2026-04-18 17:23:05,326 INFO   epoch 025 | train 0.3624 | val 0.3931
+2026-04-18 17:23:39,511 INFO   epoch 030 | train 0.3299 | val 0.3779
+2026-04-18 17:24:13,697 INFO   epoch 035 | train 0.3120 | val 0.3770
+2026-04-18 17:24:48,096 INFO   epoch 040 | train 0.3063 | val 0.3707
+2026-04-18 17:25:22,357 INFO   epoch 045 | train 0.2907 | val 0.3705
+2026-04-18 17:25:56,483 INFO   epoch 050 | train 0.2926 | val 0.3705
+2026-04-18 17:25:56,506 INFO   best val loss: 0.3672
+2026-04-18 17:25:56,507 INFO extracting embeddings...
+2026-04-18 17:26:01,228 INFO   ex_max: 511 train / 91 val / 276 test
+2026-04-18 17:26:05,250 INFO     R²=0.3800  Spearman=0.6337
+2026-04-18 17:26:05,251 INFO   em_max: 483 train / 81 val / 275 test
+2026-04-18 17:26:08,704 INFO     R²=0.5025  Spearman=0.6927
+2026-04-18 17:26:08,704 INFO   ext_coeff: 327 train / 57 val / 242 test
+2026-04-18 17:26:10,286 INFO     R²=0.2516  Spearman=0.4590
+2026-04-18 17:26:10,286 INFO   qy: 388 train / 67 val / 241 test
+2026-04-18 17:26:13,566 INFO     R²=-0.0758  Spearman=0.2211
+2026-04-18 17:26:13,568 INFO 
+fold 2/5 — 669 train / 209 test
+2026-04-18 17:26:14,029 INFO --- DMS pretraining: 51715 sequences, 10 epochs ---
+2026-04-18 17:36:05,293 INFO   epoch 001 | train 0.4046 | val 0.2234
+2026-04-18 17:45:56,837 INFO   epoch 002 | train 0.1927 | val 0.1266
+2026-04-18 17:55:48,158 INFO   epoch 003 | train 0.1384 | val 0.0980
+2026-04-18 18:05:38,550 INFO   epoch 004 | train 0.1153 | val 0.1188
+2026-04-18 18:15:29,788 INFO   epoch 005 | train 0.0937 | val 0.0663
+2026-04-18 18:25:20,945 INFO   epoch 006 | train 0.0752 | val 0.0842
+2026-04-18 18:35:12,137 INFO   epoch 007 | train 0.0655 | val 0.0768
+2026-04-18 18:45:03,715 INFO   epoch 008 | train 0.0562 | val 0.0669
+2026-04-18 18:54:55,020 INFO   epoch 009 | train 0.0497 | val 0.0540
+2026-04-18 19:04:46,433 INFO   epoch 010 | train 0.0462 | val 0.0564
+2026-04-18 19:04:46,456 INFO   best val loss: 0.0540
+2026-04-18 19:04:47,558 INFO --- FPbase fine-tuning: 568 train / 101 val ---
+2026-04-18 19:04:55,130 INFO   epoch 001 | train 0.9522 | val 1.0726
+2026-04-18 19:05:25,685 INFO   epoch 005 | train 0.5833 | val 0.8261
+2026-04-18 19:06:03,788 INFO   epoch 010 | train 0.4934 | val 0.7733
+2026-04-18 19:06:41,838 INFO   epoch 015 | train 0.4262 | val 0.6715
+2026-04-18 19:07:19,950 INFO   epoch 020 | train 0.3801 | val 0.6189
+2026-04-18 19:07:58,070 INFO   epoch 025 | train 0.3446 | val 0.5970
+2026-04-18 19:08:35,986 INFO   epoch 030 | train 0.3185 | val 0.5975
+2026-04-18 19:09:13,979 INFO   epoch 035 | train 0.2866 | val 0.5793
+2026-04-18 19:09:51,979 INFO   epoch 040 | train 0.2841 | val 0.5699
+2026-04-18 19:10:29,858 INFO   epoch 045 | train 0.2745 | val 0.5708
+2026-04-18 19:11:07,741 INFO   epoch 050 | train 0.2757 | val 0.5721
+2026-04-18 19:11:07,763 INFO   best val loss: 0.5686
+2026-04-18 19:11:07,765 INFO extracting embeddings...
+2026-04-18 19:11:12,606 INFO   ex_max: 568 train / 101 val / 209 test
+2026-04-18 19:11:17,014 INFO     R²=0.2349  Spearman=0.5113
+2026-04-18 19:11:17,014 INFO   em_max: 543 train / 92 val / 204 test
+2026-04-18 19:11:22,233 INFO     R²=0.4430  Spearman=0.5956
+2026-04-18 19:11:22,233 INFO   ext_coeff: 419 train / 74 val / 133 test
+2026-04-18 19:11:28,321 INFO     R²=0.1390  Spearman=0.4096
+2026-04-18 19:11:28,322 INFO   qy: 484 train / 80 val / 132 test
+2026-04-18 19:11:31,693 INFO     R²=-0.0396  Spearman=0.2643
+2026-04-18 19:11:31,695 INFO 
+fold 3/5 — 747 train / 131 test
+2026-04-18 19:11:32,165 INFO --- DMS pretraining: 51715 sequences, 10 epochs ---
+2026-04-18 19:21:23,025 INFO   epoch 001 | train 0.4088 | val 0.2473
+2026-04-18 19:31:14,181 INFO   epoch 002 | train 0.1856 | val 0.1079
+2026-04-18 19:41:05,553 INFO   epoch 003 | train 0.1493 | val 0.0895
+2026-04-18 19:50:56,862 INFO   epoch 004 | train 0.1069 | val 0.0927
+2026-04-18 20:00:47,995 INFO   epoch 005 | train 0.0917 | val 0.1029
+2026-04-18 20:10:39,422 INFO   epoch 006 | train 0.0757 | val 0.0574
+2026-04-18 20:20:30,713 INFO   epoch 007 | train 0.0639 | val 0.0724
+2026-04-18 20:30:21,659 INFO   epoch 008 | train 0.0544 | val 0.0549
+2026-04-18 20:40:13,377 INFO   epoch 009 | train 0.0475 | val 0.0509
+2026-04-18 20:50:04,773 INFO   epoch 010 | train 0.0436 | val 0.0485
+2026-04-18 20:50:04,848 INFO   best val loss: 0.0485
+2026-04-18 20:50:07,229 INFO --- FPbase fine-tuning: 634 train / 113 val ---
+2026-04-18 20:50:15,671 INFO   epoch 001 | train 0.9737 | val 0.8840
+2026-04-18 20:50:49,731 INFO   epoch 005 | train 0.6145 | val 0.6121
+2026-04-18 20:51:32,107 INFO   epoch 010 | train 0.5288 | val 0.5676
+2026-04-18 20:52:14,376 INFO   epoch 015 | train 0.4528 | val 0.5064
+2026-04-18 20:52:56,690 INFO   epoch 020 | train 0.4222 | val 0.5087
+2026-04-18 20:53:38,872 INFO   epoch 025 | train 0.3788 | val 0.4889
+2026-04-18 20:54:21,014 INFO   epoch 030 | train 0.3471 | val 0.4786
+2026-04-18 20:55:03,260 INFO   epoch 035 | train 0.3367 | val 0.4728
+2026-04-18 20:55:45,379 INFO   epoch 040 | train 0.3297 | val 0.4627
+2026-04-18 20:56:27,493 INFO   epoch 045 | train 0.3176 | val 0.4602
+2026-04-18 20:57:09,760 INFO   epoch 050 | train 0.3090 | val 0.4596
+2026-04-18 20:57:09,783 INFO   best val loss: 0.4578
+2026-04-18 20:57:09,785 INFO extracting embeddings...
+2026-04-18 20:57:14,490 INFO   ex_max: 634 train / 113 val / 131 test
+2026-04-18 20:57:18,305 INFO     R²=0.0278  Spearman=0.2611
+2026-04-18 20:57:18,305 INFO   em_max: 622 train / 110 val / 107 test
+2026-04-18 20:57:21,049 INFO     R²=0.2357  Spearman=0.4310
+2026-04-18 20:57:21,049 INFO   ext_coeff: 442 train / 84 val / 100 test
+2026-04-18 20:57:24,562 INFO     R²=-0.2593  Spearman=-0.1392
+2026-04-18 20:57:24,562 INFO   qy: 512 train / 92 val / 92 test
+2026-04-18 20:57:29,169 INFO     R²=0.0858  Spearman=0.2185
+2026-04-18 20:57:29,171 INFO 
+fold 4/5 — 747 train / 131 test
+2026-04-18 20:57:30,318 INFO --- DMS pretraining: 51715 sequences, 10 epochs ---
+2026-04-18 21:07:21,326 INFO   epoch 001 | train 0.3841 | val 0.1512
+2026-04-18 21:17:13,217 INFO   epoch 002 | train 0.1859 | val 0.2583
+2026-04-18 21:27:05,007 INFO   epoch 003 | train 0.1342 | val 0.0834
+2026-04-18 21:36:56,612 INFO   epoch 004 | train 0.1065 | val 0.0804
+2026-04-18 21:46:48,149 INFO   epoch 005 | train 0.0866 | val 0.0706
+2026-04-18 21:56:40,217 INFO   epoch 006 | train 0.0738 | val 0.0615
+2026-04-18 22:06:32,006 INFO   epoch 007 | train 0.0612 | val 0.0601
+2026-04-18 22:16:23,842 INFO   epoch 008 | train 0.0514 | val 0.0571
+2026-04-18 22:26:15,553 INFO   epoch 009 | train 0.0466 | val 0.0502
+2026-04-18 22:36:07,101 INFO   epoch 010 | train 0.0420 | val 0.0516
+2026-04-18 22:36:07,127 INFO   best val loss: 0.0502
+2026-04-18 22:36:08,237 INFO --- FPbase fine-tuning: 634 train / 113 val ---
+2026-04-18 22:36:16,689 INFO   epoch 001 | train 0.9645 | val 0.7727
+2026-04-18 22:36:50,715 INFO   epoch 005 | train 0.6414 | val 0.5551
+2026-04-18 22:37:33,280 INFO   epoch 010 | train 0.5351 | val 0.5095
+2026-04-18 22:38:15,824 INFO   epoch 015 | train 0.4614 | val 0.4729
+2026-04-18 22:38:58,122 INFO   epoch 020 | train 0.4284 | val 0.4532
+2026-04-18 22:39:40,462 INFO   epoch 025 | train 0.3805 | val 0.4382
+2026-04-18 22:40:22,752 INFO   epoch 030 | train 0.3494 | val 0.4448
+2026-04-18 22:41:05,109 INFO   epoch 035 | train 0.3335 | val 0.4360
+2026-04-18 22:41:47,371 INFO   epoch 040 | train 0.3319 | val 0.4358
+2026-04-18 22:42:29,732 INFO   epoch 045 | train 0.3148 | val 0.4322
+2026-04-18 22:43:11,970 INFO   epoch 050 | train 0.3220 | val 0.4338
+2026-04-18 22:43:11,992 INFO   best val loss: 0.4309
+2026-04-18 22:43:11,993 INFO extracting embeddings...
+2026-04-18 22:43:16,727 INFO   ex_max: 634 train / 113 val / 131 test
+2026-04-18 22:43:21,898 INFO     R²=0.6402  Spearman=0.6029
+2026-04-18 22:43:21,898 INFO   em_max: 602 train / 106 val / 131 test
+2026-04-18 22:43:24,805 INFO     R²=0.6909  Spearman=0.4590
+2026-04-18 22:43:24,806 INFO   ext_coeff: 489 train / 89 val / 48 test
+2026-04-18 22:43:29,229 INFO     R²=0.2954  Spearman=0.6103
+2026-04-18 22:43:29,229 INFO   qy: 484 train / 88 val / 124 test
+2026-04-18 22:43:34,686 INFO     R²=0.2168  Spearman=0.4540
+2026-04-18 22:43:34,688 INFO 
+fold 5/5 — 747 train / 131 test
+2026-04-18 22:43:35,226 INFO --- DMS pretraining: 51715 sequences, 10 epochs ---
+2026-04-18 22:53:26,276 INFO   epoch 001 | train 0.3909 | val 0.1969
+2026-04-18 23:03:16,754 INFO   epoch 002 | train 0.1877 | val 0.1089
+2026-04-18 23:13:08,020 INFO   epoch 003 | train 0.1339 | val 0.1012
+2026-04-18 23:22:59,394 INFO   epoch 004 | train 0.1112 | val 0.0768
+2026-04-18 23:32:50,562 INFO   epoch 005 | train 0.0906 | val 0.0703
+2026-04-18 23:42:41,486 INFO   epoch 006 | train 0.0757 | val 0.0606
+2026-04-18 23:52:32,527 INFO   epoch 007 | train 0.0656 | val 0.0653
+2026-04-19 00:02:22,843 INFO   epoch 008 | train 0.0547 | val 0.0671
+2026-04-19 00:12:13,141 INFO   epoch 009 | train 0.0476 | val 0.0503
+2026-04-19 00:22:03,888 INFO   epoch 010 | train 0.0436 | val 0.0514
+2026-04-19 00:22:03,909 INFO   best val loss: 0.0503
+2026-04-19 00:22:05,005 INFO --- FPbase fine-tuning: 634 train / 113 val ---
+2026-04-19 00:22:13,439 INFO   epoch 001 | train 0.9262 | val 0.8879
+2026-04-19 00:22:47,401 INFO   epoch 005 | train 0.5340 | val 0.7079
+2026-04-19 00:23:29,718 INFO   epoch 010 | train 0.4521 | val 0.6674
+2026-04-19 00:24:12,062 INFO   epoch 015 | train 0.3970 | val 0.6911
+2026-04-19 00:24:54,355 INFO   epoch 020 | train 0.3524 | val 0.6317
+2026-04-19 00:25:36,566 INFO   epoch 025 | train 0.3137 | val 0.6462
+2026-04-19 00:26:18,723 INFO   epoch 030 | train 0.2986 | val 0.6333
+2026-04-19 00:26:35,598 INFO   early stop at epoch 32
+2026-04-19 00:26:35,621 INFO   best val loss: 0.6317
+2026-04-19 00:26:35,622 INFO extracting embeddings...
+2026-04-19 00:26:40,330 INFO   ex_max: 634 train / 113 val / 131 test
+2026-04-19 00:26:48,953 INFO     R²=0.3372  Spearman=0.4749
+2026-04-19 00:26:48,953 INFO   em_max: 610 train / 107 val / 122 test
+2026-04-19 00:26:54,210 INFO     R²=0.2754  Spearman=0.6337
+2026-04-19 00:26:54,210 INFO   ext_coeff: 438 train / 85 val / 103 test
+2026-04-19 00:26:56,547 INFO     R²=0.1809  Spearman=0.2613
+2026-04-19 00:26:56,547 INFO   qy: 500 train / 89 val / 107 test
+2026-04-19 00:26:57,892 INFO     R²=0.2897  Spearman=0.6242
+2026-04-19 00:26:57,895 INFO 
+CV results — v2 (DMS + XGBoost)
+2026-04-19 00:26:57,896 INFO ------------------------------------------------------------
+2026-04-19 00:26:57,896 INFO   ex_max        Spearman 0.4968 ± 0.1313  R² 0.3240 ± 0.1995  (5 folds, n=878)
+2026-04-19 00:26:57,896 INFO   em_max        Spearman 0.5624 ± 0.1011  R² 0.4295 ± 0.1644  (5 folds, n=839)
+2026-04-19 00:26:57,896 INFO   ext_coeff     Spearman 0.3202 ± 0.2553  R² 0.1215 ± 0.1980  (5 folds, n=626)
+2026-04-19 00:26:57,896 INFO   qy            Spearman 0.3564 ± 0.1594  R² 0.0954 ± 0.1415  (5 folds, n=696)
+2026-04-19 00:26:57,906 INFO results: results/v2/v2_20260418_154116.json

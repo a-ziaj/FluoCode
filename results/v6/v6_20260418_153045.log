@@ -1,0 +1,60 @@
+2026-04-18 15:30:45,139 INFO config: configs/v6.yaml | run: 20260418_153045
+2026-04-18 15:30:45,139 INFO device: cuda
+2026-04-18 15:30:45,198 INFO gpu: NVIDIA A100 80GB PCIe (85GB)
+2026-04-18 15:30:45,222 INFO FPbase: loading cache from data/fpbase_data.csv
+2026-04-18 15:30:45,248 INFO DMS: loading cache from data/gonzalez_somermeyer_dms.csv
+2026-04-18 15:30:45,473 INFO test run: reduced dataset and epochs
+2026-04-18 15:30:45,563 INFO structure dir: data/structure/minimized (913 PDB files)
+2026-04-18 15:30:46,561 INFO matched 105/120 proteins to PDB structures
+2026-04-18 15:30:46,562 INFO unmatched (15): ['Wi-Phy', 'TDsmURFP', 'tdStayGold', 'CagFbFP', 'BP02', 'BR1', 'BDFP1.8', 'BDFP1.6', 'CreiLOV', 'smURFP']
+2026-04-18 15:30:46,572 INFO pocket features: (120, 900), 105/120 matched
+2026-04-18 15:30:46,864 INFO clustering 120 sequences (threshold=0.3, folds=2)
+2026-04-18 15:30:47,021 INFO   8 clusters formed
+2026-04-18 15:30:47,022 INFO   fold 0: 71 proteins
+2026-04-18 15:30:47,022 INFO   fold 1: 49 proteins
+2026-04-18 15:30:47,022 INFO 
+fold 1/2 — 49 train / 71 test
+2026-04-18 15:30:48,566 INFO --- DMS pretraining: 400 sequences, 2 epochs ---
+2026-04-18 15:31:05,443 INFO   epoch 001 | train 1.1058 | val 1.1398
+2026-04-18 15:31:10,546 INFO   epoch 002 | train 0.9881 | val 1.1163
+2026-04-18 15:31:10,661 INFO   best val loss: 1.1163
+2026-04-18 15:31:11,562 INFO --- FPbase fine-tuning: 41 train / 8 val ---
+2026-04-18 15:31:12,503 INFO   epoch 001 | train 1.4709 | val 1.0475
+2026-04-18 15:31:14,555 INFO   best val loss: 0.9119
+2026-04-18 15:31:14,557 INFO extracting embeddings...
+2026-04-18 15:31:15,598 INFO pocket features: 36/49 training proteins have structure
+2026-04-18 15:31:15,599 INFO   ex_max: 41 train / 8 val / 71 test
+2026-04-18 15:31:15,934 INFO     R²=-0.5292  Spearman=0.3572
+2026-04-18 15:31:15,934 INFO   em_max: 41 train / 8 val / 71 test
+2026-04-18 15:31:16,102 INFO     R²=-1.0910  Spearman=0.2828
+2026-04-18 15:31:16,102 INFO   ext_coeff: 41 train / 8 val / 71 test
+2026-04-18 15:31:16,541 INFO     R²=-0.2607  Spearman=0.1729
+2026-04-18 15:31:16,541 INFO   qy: 41 train / 8 val / 71 test
+2026-04-18 15:31:16,931 INFO     R²=-0.3330  Spearman=0.0643
+2026-04-18 15:31:16,934 INFO 
+fold 2/2 — 71 train / 49 test
+2026-04-18 15:31:17,350 INFO --- DMS pretraining: 400 sequences, 2 epochs ---
+2026-04-18 15:31:22,391 INFO   epoch 001 | train 1.0569 | val 1.1308
+2026-04-18 15:31:27,504 INFO   epoch 002 | train 0.9651 | val 1.1061
+2026-04-18 15:31:27,616 INFO   best val loss: 1.1061
+2026-04-18 15:31:28,052 INFO --- FPbase fine-tuning: 60 train / 11 val ---
+2026-04-18 15:31:29,220 INFO   epoch 001 | train 0.9870 | val 0.5206
+2026-04-18 15:31:31,822 INFO   best val loss: 0.4467
+2026-04-18 15:31:31,825 INFO extracting embeddings...
+2026-04-18 15:31:32,899 INFO pocket features: 69/71 training proteins have structure
+2026-04-18 15:31:32,900 INFO   ex_max: 60 train / 11 val / 49 test
+2026-04-18 15:31:33,084 INFO     R²=-0.4301  Spearman=-0.1504
+2026-04-18 15:31:33,084 INFO   em_max: 60 train / 11 val / 49 test
+2026-04-18 15:31:33,278 INFO     R²=-0.4533  Spearman=0.2375
+2026-04-18 15:31:33,279 INFO   ext_coeff: 60 train / 11 val / 49 test
+2026-04-18 15:31:33,651 INFO     R²=-0.1592  Spearman=-0.2781
+2026-04-18 15:31:33,652 INFO   qy: 60 train / 11 val / 49 test
+2026-04-18 15:31:34,189 INFO     R²=-0.1987  Spearman=0.2579
+2026-04-18 15:31:34,192 INFO 
+CV results — v6 (DMS + XGBoost + structures)
+2026-04-18 15:31:34,192 INFO ------------------------------------------------------------
+2026-04-18 15:31:34,192 INFO   ex_max        Spearman 0.1034 ± 0.2538  R² -0.4797 ± 0.0496  (2 folds, n=120)
+2026-04-18 15:31:34,192 INFO   em_max        Spearman 0.2601 ± 0.0227  R² -0.7722 ± 0.3188  (2 folds, n=120)
+2026-04-18 15:31:34,192 INFO   ext_coeff     Spearman -0.0526 ± 0.2255  R² -0.2099 ± 0.0507  (2 folds, n=120)
+2026-04-18 15:31:34,192 INFO   qy            Spearman 0.1611 ± 0.0968  R² -0.2659 ± 0.0672  (2 folds, n=120)
+2026-04-18 15:31:34,198 INFO results: results/v6/v6_20260418_153045.json

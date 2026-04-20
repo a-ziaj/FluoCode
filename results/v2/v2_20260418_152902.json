@@ -1,0 +1,112 @@
+{
+  "model": "v2",
+  "run_id": "20260418_152902",
+  "description": "DMS-pretrained ESM2 + XGBoost, cluster CV",
+  "n_folds": 2,
+  "cv_summary": {
+    "ex_max": {
+      "spearman_mean": 0.1125,
+      "spearman_std": 0.2445,
+      "r2_mean": -0.4966,
+      "r2_std": 0.0591,
+      "n_folds": 2,
+      "n_total": 120
+    },
+    "em_max": {
+      "spearman_mean": 0.0856,
+      "spearman_std": 0.1269,
+      "r2_mean": -0.7937,
+      "r2_std": 0.2734,
+      "n_folds": 2,
+      "n_total": 120
+    },
+    "ext_coeff": {
+      "spearman_mean": -0.0335,
+      "spearman_std": 0.2446,
+      "r2_mean": -0.1676,
+      "r2_std": 0.0626,
+      "n_folds": 2,
+      "n_total": 120
+    },
+    "qy": {
+      "spearman_mean": 0.1623,
+      "spearman_std": 0.0615,
+      "r2_mean": -0.1575,
+      "r2_std": 0.004,
+      "n_folds": 2,
+      "n_total": 120
+    }
+  },
+  "fold_results": [
+    {
+      "ex_max": {
+        "r2": -0.5557,
+        "spearman": 0.357,
+        "n": 71
+      },
+      "em_max": {
+        "r2": -1.0671,
+        "spearman": 0.2125,
+        "n": 71
+      },
+      "ext_coeff": {
+        "r2": -0.105,
+        "spearman": 0.2111,
+        "n": 71
+      },
+      "qy": {
+        "r2": -0.1535,
+        "spearman": 0.1008,
+        "n": 71
+      }
+    },
+    {
+      "ex_max": {
+        "r2": -0.4375,
+        "spearman": -0.132,
+        "n": 49
+      },
+      "em_max": {
+        "r2": -0.5203,
+        "spearman": -0.0413,
+        "n": 49
+      },
+      "ext_coeff": {
+        "r2": -0.2302,
+        "spearman": -0.2781,
+        "n": 49
+      },
+      "qy": {
+        "r2": -0.1616,
+        "spearman": 0.2238,
+        "n": 49
+      }
+    }
+  ],
+  "config": {
+    "model_name": "facebook/esm2_t12_35M_UR50D",
+    "n_folds": 2,
+    "cluster_threshold": 0.3,
+    "seed": 42,
+    "dms_lora_r": 4,
+    "dms_lora_alpha": 8,
+    "dms_epochs": 2,
+    "dms_batch_size": 16,
+    "dms_lr": 0.0005,
+    "dms_sample": 3000,
+    "dms_patience": 4,
+    "fpbase_lora_r": 8,
+    "fpbase_lora_alpha": 16,
+    "fpbase_lora_dropout": 0.1,
+    "fpbase_epochs": 3,
+    "fpbase_batch_size": 8,
+    "fpbase_lr": 0.0001,
+    "fpbase_patience": 12,
+    "max_length": 512,
+    "fpbase_cache": "data/fpbase_data.csv",
+    "dms_cache": "data/gonzalez_somermeyer_dms.csv",
+    "results_dir": "results/v2",
+    "checkpoint_dir": "checkpoints/v2",
+    "test_run": true
+  }
+}
